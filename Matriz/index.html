@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suma de Elementos de una Matriz</title>
+</head>
+<body>
+  <h1>Suma de Elementos de una Matriz</h1>
+
+  <table id="matriz">
+    <tr>
+      <td><input type="text" id="input00"></td>
+      <td><input type="text" id="input01"></td>
+      <td><input type="text" id="input02"></td>
+      <td><input type="text" id="input03"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="input10"></td>
+      <td><input type="text" id="input11"></td>
+      <td><input type="text" id="input12"></td>
+      <td><input type="text" id="input13"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="input20"></td>
+      <td><input type="text" id="input21"></td>
+      <td><input type="text" id="input22"></td>
+      <td><input type="text" id="input23"></td>
+    </tr>
+  </table>
+
+  <button onclick="calcularSumas()">Calcular Sumas</button>
+
+  <h2>Resultados:</h2>
+  <div id="resultados"></div>
+
+  <script>
+    function calcularSumas() {
+      var matriz = [
+        [parseInt(document.getElementById("input00").value), parseInt(document.getElementById("input01").value), parseInt(document.getElementById("input02").value), parseInt(document.getElementById("input03").value)],
+        [parseInt(document.getElementById("input10").value), parseInt(document.getElementById("input11").value), parseInt(document.getElementById("input12").value), parseInt(document.getElementById("input13").value)],
+        [parseInt(document.getElementById("input20").value), parseInt(document.getElementById("input21").value), parseInt(document.getElementById("input22").value), parseInt(document.getElementById("input23").value)]
+      ];
+
+      var resultados = document.getElementById("resultados");
+      resultados.innerHTML = "";
+
+      // Calcular suma de elementos de cada fila y mostrar los resultados
+      for (var i = 0; i < matriz.length; i++) {
+        var sumaFila = 0;
+        for (var j = 0; j < matriz[i].length; j++) {
+          sumaFila += matriz[i][j];
+        }
+        resultados.innerHTML += "La suma de los elementos de la fila " + i + " es: " + sumaFila + "<br>";
+      }
+
+      // Calcular suma de elementos de cada columna y mostrar los resultados
+      for (var j = 0; j < matriz[0].length; j++) {
+        var sumaColumna = 0;
+        for (var i = 0; i < matriz.length; i++) {
+          sumaColumna += matriz[i][j];
+        }
+        resultados.innerHTML += "La suma de los elementos de la columna " + j + " es: " + sumaColumna + "<br>";
+      }
+    }
+  </script>
+</body>
+</html>
